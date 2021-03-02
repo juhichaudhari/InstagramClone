@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnCapturemage;
     private ImageView ivPostImage;
     private Button btnSubmit;
+    private Button btnLogout;
     private File photoFile;
     public String photoFileName = "photo.jpg";
 
@@ -49,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
         btnCapturemage = findViewById(R.id.btnCaptureImage);
         ivPostImage = findViewById(R.id.ivPostImage);
         btnSubmit = findViewById(R.id.btnSubmit);
+        btnLogout = findViewById(R.id.btnLogout);
+
 
         btnCapturemage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,8 +78,26 @@ public class MainActivity extends AppCompatActivity {
                 }
                 ParseUser currentUser = ParseUser.getCurrentUser();
                 savePost (description, currentUser, photoFile);
+
             }
         });
+
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ParseUser currentUser = ParseUser.getCurrentUser();
+                ParseUser.logOut();
+                goLoginActivity();
+                Toast.makeText(MainActivity.this, "Logout Success!", Toast.LENGTH_SHORT);
+
+            }
+        });
+    }
+
+    private void goLoginActivity() {
+        Intent i  = new Intent(this, LoginActivity.class);
+        startActivity(i);
+        finish();
     }
 
     private void launchCamara() {
