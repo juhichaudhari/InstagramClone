@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="16dp"
+    android:backgroundTint="#A4B311"
     android:orientation="vertical"
     tools:context=".LoginActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:srcCompat="@drawable/nav_logo_whiteout" />
 
     <EditText
         android:id="@+id/etUsername"
@@ -31,12 +38,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Login" />
+        android:backgroundTint="#03A9F4"
+        android:text="Login"
+        app:iconTint="#FFFFFF" />
 
     <Button
         android:id="@+id/btnSignup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:backgroundTint="#86CA37"
         android:text="Sign Up" />
 </LinearLayout>
